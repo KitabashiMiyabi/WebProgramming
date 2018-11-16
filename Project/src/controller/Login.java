@@ -21,6 +21,7 @@ public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
+     *
      * @see HttpServlet#HttpServlet()
      */
     public Login() {
@@ -52,7 +53,7 @@ public class Login extends HttpServlet {
 
 			if (user == null) {
 				// リクエストスコープにエラーメッセージをセット
-				request.setAttribute("errMsg", "ログインに失敗しました。");
+				request.setAttribute("errMsg", "ログインIDまたはパスワードが異なります");
 
 				// ログインjspにフォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");

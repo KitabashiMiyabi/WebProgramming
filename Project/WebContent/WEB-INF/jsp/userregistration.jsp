@@ -12,33 +12,38 @@
 </head>
 	<body>
 		<p style="background-color:#ffcc99;">
-		<div align=right>
-		ユーザー名さん
-		<a href="a.shtml">ログアウト</a>
-		</div>
-		</p><br>
+			<div align=right>
+			${user.name}
+				<form class="form-signin" action="Login" method="get">
+					<a href="a.shtml">ログアウト</a>
+				</form>
+			</div>
+		<br>
 		<DIV align="center"><h1>ユーザ新規登録</h1><br></DIV>
 		<br>
 		<div class="container">
-		ログインID　　　　　　　　　　
-		<input type="text" id="id"><br>
+		<form class="form-signin" action="SignUp" method="post">
+		ログインID　　　
+		<input type="text" name="id"><br>
 		<br>
-		パスワード　　　　　　　　　　
-		<input type="text" password="password"><br>
+		パスワード　　　
+		<input type="text" name="password"><br>
 		<br>
-		パスワード（確認用）　　　　　
-		<input type="text" password2="password2"><br>
+		パスワード（確認用）　　　
+		<input type="text" name="password2"><br>
 		<br>
-		ユーザ名　　　　　　　　　　　
+		ユーザ名　　　
 		<input type="text" name="name"><br>
 		<br>
-		生年月日　　　　　　　　　　　
-		<input type="text" birthday="birthday"><br>
+		生年月日　　　
+		<input type="text" name="birthday"><br>
 		<br>
 		<br>
 		<DIV align="center">
 		<input type="submit" value="　登録　">
-		</DIV><br>
+		</DIV>
+		</form>
+		<br>
 		<br>
 		<a href="a.shtml">戻る</a>
 		</div>

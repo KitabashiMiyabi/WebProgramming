@@ -18,7 +18,7 @@
 <body>
 	<p style="background-color: #ffcc99;">
 		<div align=right>
-			ユーザー名さん
+			${user.name}
 			<form class="form-signin" action="Login" method="get">
 				<a href="a.shtml">ログアウト</a>
 			</form>

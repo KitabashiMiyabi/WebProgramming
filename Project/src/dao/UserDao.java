@@ -103,5 +103,14 @@ public class UserDao {
             }
         }
         return userList;
+
+    }
+
+
+    public void signup (String loginId, String password,String name,String birthDate) {
+    	  Connection conn = null;
+    	  conn = DBManager.getConnection();
+
+
     }
 }

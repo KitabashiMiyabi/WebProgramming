@@ -33,6 +33,10 @@ public class User {
 		this.createDate = createDate;
 		this.updateDate = updateDate;
 	}
+
+	
+
+
 	public int getId() {
 		return id;
 	}

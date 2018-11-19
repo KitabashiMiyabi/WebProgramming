@@ -10,25 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Userregistration2
+ * Servlet implementation class UserLeference
  */
-@WebServlet("/Userregistration2")
-public class Userregistration2 extends HttpServlet {
+@WebServlet("/UserLeference")
+public class UserLeference extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Userregistration2() {
+
+    public UserLeference() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Userregistration2.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userregistration2.jsp");
 		dispatcher.forward(request, response);
 	}
 

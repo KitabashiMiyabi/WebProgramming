@@ -14,9 +14,7 @@
 		<p style="background-color:#ffcc99;">
 		<div align=right>
 			${userInfo.name}
-			<form class="form-signin" action="Login" method="get">
-				<a href="a.shtml">ログアウト</a>
-			</form>
+			<a href="a.shtml">ログアウト</a>
 		</div>
 		<br>
 		<DIV align="center"><h1>ユーザ情報詳細参照</h1><br></DIV>
@@ -34,9 +32,7 @@
 			<br>
 			更新日時　　　　　　${userInfo.now}<br>
 			<br>
-			<form class="form-signin" action="UserList" method="get">
-				<a href="a.shtml">戻る</a>
-			</form>
+			<a href="UserList">戻る</a>
 	    </div>
 	</body>
 </html>

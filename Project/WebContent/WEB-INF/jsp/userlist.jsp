@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ユーザ一覧</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -19,9 +19,7 @@
 	<p style="background-color: #ffcc99;">
 		<div align=right>
 			${userInfo.name}
-			<form class="form-signin" action="Login" method="get">
-				<a href="a.shtml">ログアウト</a>
-			</form>
+			<a href="a.shtml">ログアウト</a>
 		</div>
 	</p>
 	<br>
@@ -41,14 +39,14 @@
 			<div class="form-group">
 				<div class="row">
 					<label for="code" class="control-label col-sm-2">ログインID</label> <input
-						type="text" name="login-id" id="login-id"
+						type="text" name="loginid"
 						class="form-control col-sm-2" />
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="row">
 					<label for="name" class="control-label col-sm-2">ユーザ名 </label> <input
-						type="text" name="user-name" id="user-name"
+						type="text" name="name"
 						class="form-control col-sm-2" style="width: 171px;">
 				</div>
 			</div>

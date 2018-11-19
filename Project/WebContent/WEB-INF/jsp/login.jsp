@@ -11,6 +11,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
+
 </head>
 	<body>
 		<DIV align="center"><h1>ログイン画面</h1><br>
@@ -23,7 +24,7 @@
 
 			<form class="form-signin" action="Login" method="post">
 				<br>
-				ログインID &emsp;<input type="text" id="id" name="loginid"><br>
+				ログインID &emsp;<input type="text" name="loginid"><br>
 				<br>
 				パスワード  &emsp;<input type="text" name="password"><br>
 				<br>

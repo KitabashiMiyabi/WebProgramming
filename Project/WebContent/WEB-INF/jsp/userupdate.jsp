@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>ユーザ情報更新</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
@@ -43,9 +43,7 @@
 			</form>
 			<br>
 			<br>
-			<form class="form-signin" action="UserList" method="get">
-				<a href="a.shtml">戻る</a>
-			</form>
+			<a href="UserList">戻る</a>
 		</div>
 	</body>
 </html>

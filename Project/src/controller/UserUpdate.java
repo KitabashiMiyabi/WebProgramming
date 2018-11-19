@@ -13,28 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 import dao.UserDao;
 
 /**
- * Servlet implementation class SignUp
+ * Servlet implementation class UserUpdate
  */
-@WebServlet("/SignUp")
-public class SignUp extends HttpServlet {
+@WebServlet("/UserUpdate")
+public class UserUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignUp() {
+    public UserUpdate() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userregistration.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
 		dispatcher.forward(request, response);
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -43,24 +41,23 @@ public class SignUp extends HttpServlet {
 		 request.setCharacterEncoding("UTF-8");//おまじない
 
 
-			String loginId = request.getParameter("loginid");
-			String password = request.getParameter("password");
-			String name = request.getParameter("name");
-            String birthDate = request.getParameter("birth_date");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+        String birthDate = request.getParameter("birth_date");
+		
+        try{
+         	UserDao userDao = new UserDao();
+         	userDao.update(name);
+         	userDao.update(birthDate);
 
-            try{
-            	UserDao userDao = new UserDao();
-            	userDao.signup(loginId, password,name,birthDate);
 
-            }catch(SQLException e) {
+        }catch(SQLException e) {
 				// リクエストスコープにエラーメッセージをセット
 				request.setAttribute("errMsg", "入力された内容は正しくありません");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userregistration.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
 				dispatcher.forward(request, response);
 				return;
-			}
-
-
+		}
 	}
 
 }

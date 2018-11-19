@@ -67,7 +67,7 @@ public class Login extends HttpServlet {
 			session.setAttribute("userInfo", user);
 
 			// ユーザ一覧のサーブレットにリダイレクト
-			response.sendRedirect("UserListServlet");
+			response.sendRedirect("UserList");
 
 	}
 }

@@ -13,7 +13,7 @@
 	<body>
 		<p style="background-color:#ffcc99;">
 			<div align=right>
-			${user.name}
+			${userInfo.name}
 				<form class="form-signin" action="Login" method="get">
 					<a href="a.shtml">ログアウト</a>
 				</form>
@@ -22,30 +22,32 @@
 		<DIV align="center"><h1>ユーザ新規登録</h1><br></DIV>
 		<br>
 		<div class="container">
-		<form class="form-signin" action="SignUp" method="post">
-		ログインID　　　
-		<input type="text" name="id"><br>
-		<br>
-		パスワード　　　
-		<input type="text" name="password"><br>
-		<br>
-		パスワード（確認用）　　　
-		<input type="text" name="password2"><br>
-		<br>
-		ユーザ名　　　
-		<input type="text" name="name"><br>
-		<br>
-		生年月日　　　
-		<input type="text" name="birthday"><br>
-		<br>
-		<br>
-		<DIV align="center">
-		<input type="submit" value="　登録　">
-		</DIV>
-		</form>
-		<br>
-		<br>
-		<a href="a.shtml">戻る</a>
+			<form class="form-signin" action="SignUp" method="post">
+				ログインID　　　
+				<input type="text" name="id"><br>
+				<br>
+				パスワード　　　
+				<input type="text" name="password"><br>
+				<br>
+				パスワード（確認用）　　　
+				<input type="text" name="password2"><br>
+				<br>
+				ユーザ名　　　
+				<input type="text" name="name"><br>
+				<br>
+				生年月日　　　
+				<input type="date" name="birthday"><br>
+				<br>
+				<br>
+				<DIV align="center">
+			 		<input type="submit" value="　登録　">
+				</DIV>
+			</form>
+			<br>
+			<br>
+			<form class="form-signin" action="UserList" method="get">
+				<a href="a.shtml">戻る</a>
+			</form>
 		</div>
 	</body>
 </html>

@@ -6,10 +6,21 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>ログイン画面</title>
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
 </head>
 	<body>
 		<DIV align="center"><h1>ログイン画面</h1><br>
+
+			<c:if test="${errMsg != null}" >
+			    <div class="alert alert-danger" role="alert">
+				  ${errMsg}
+				</div>
+			</c:if>
+
 			<form class="form-signin" action="Login" method="post">
 				<br>
 				ログインID &emsp;<input type="text" id="id" name="loginid"><br>

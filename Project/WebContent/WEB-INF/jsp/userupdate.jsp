@@ -13,34 +13,39 @@
 	<body>
 		<p style="background-color:#ffcc99;">
 		<div align=right>
-		ユーザー名さん
-		<a href="a.shtml">ログアウト</a>
+			${userInfo.name}
+			<a href="a.shtml">ログアウト</a>
 		</div>
-		</p><br>
+		<br>
 		<DIV align="center"><h1>ユーザ情報更新</h1><br></DIV>
 		<br>
 		<div class="container">
-		ログインID　　　　　　　　　　
-		id0001<br>
-		<br>
-		パスワード　　　　　　　　　　
-		<input type="text" password="password"><br>
-		<br>
-		パスワード（確認用）　　　　　
-		<input type="text" password2="password2"><br>
-		<br>
-		ユーザ名　　　　　　　　　　　
-		<input type="text" value="田中太郎" ><br>
-		<br>
-		生年月日　　　　　　　　　　　
-		<input type="text" value="1989/04/26" ><br>
-		<br>
-		<br>
-		<DIV align="center">
-		<input type="submit" value="　更新　">
-		</DIV><br>
-		<br>
-		<a href="a.shtml">戻る</a>
+			<form class="form-signin" action="UserList" method="post">
+				ログインID　　　　　　　　　　
+				${userInfo.id}<br>
+				<br>
+				パスワード　　　　　　　　　　
+				<input type="text" name="password"><br>
+				<br>
+				パスワード（確認用）　　　　　
+				<input type="text" name="password2"><br>
+				<br>
+				ユーザ名　　　　　　　　　　　
+				<input type="text" name="${userInfo.name}" ><br>
+				<br>
+				生年月日　　　　　　　　　　　
+				<input type="text" name="${userInfo.birthDate}" ><br>
+				<br>
+				<br>
+				<DIV align="center">
+					<input type="submit" value="　更新　">
+				</DIV>
+			</form>
+			<br>
+			<br>
+			<form class="form-signin" action="UserList" method="get">
+				<a href="a.shtml">戻る</a>
+			</form>
 		</div>
 	</body>
 </html>

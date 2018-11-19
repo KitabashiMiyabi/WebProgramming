@@ -18,7 +18,7 @@
 <body>
 	<p style="background-color: #ffcc99;">
 		<div align=right>
-			${user.name}
+			${userInfo.name}
 			<form class="form-signin" action="Login" method="get">
 				<a href="a.shtml">ログアウト</a>
 			</form>
@@ -32,12 +32,10 @@
 
 	<div class="container">
 
-		<form class="form-signin" action="SignUp" method="get">
-			<div align=right>
-				<a href="a.shtml">新規登録</a>
-			</div>
-			<br>
-		</form>
+		<div align=right>
+			<a href="SignUp">新規登録</a>
+		</div>
+		<br>
 
 		<form method="post" action="UserList" class="form-horizontal">
 			<div class="form-group">

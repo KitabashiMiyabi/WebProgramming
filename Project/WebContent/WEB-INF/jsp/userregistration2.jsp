@@ -13,26 +13,30 @@
 	<body>
 		<p style="background-color:#ffcc99;">
 		<div align=right>
-		ユーザー名さん
-		<a href="a.shtml">ログアウト</a>
+			${userInfo.name}
+			<form class="form-signin" action="Login" method="get">
+				<a href="a.shtml">ログアウト</a>
+			</form>
 		</div>
-		</p><br>
+		<br>
 		<DIV align="center"><h1>ユーザ情報詳細参照</h1><br></DIV>
 		<br>
 		<br>
 		<br>
 		<div class="container">
-		ログインID　　　　　id0001<br>
-		<br>
-		ユーザ名　　　　　　田中太郎<br>
-		<br>
-		生年月日　　　　　　1989年04月26日<br>
-		<br>
-		登録日時　　　　　　2017年01月01日　10:50<br>
-		<br>
-		更新日時　　　　　　2017年02月01日　01:05<br>
-		<br>
-		<a href="a.shtml">戻る</a>
+			ログインID　　　　　${userInfo.loginId}<br>
+			<br>
+			ユーザ名　　　　　　${userInfo.name}<br>
+			<br>
+			生年月日　　　　　　${userInfo.birthDate}<br>
+			<br>
+			登録日時　　　　　　${userInfo.now}<br>
+			<br>
+			更新日時　　　　　　${userInfo.now}<br>
+			<br>
+			<form class="form-signin" action="UserList" method="get">
+				<a href="a.shtml">戻る</a>
+			</form>
 	    </div>
 	</body>
 </html>

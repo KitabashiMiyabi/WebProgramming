@@ -107,10 +107,62 @@ public class UserDao {
     }
 
 
-    public void signup (String loginId, String password,String name,String birthDate) {
+    public void signup (String loginId, String password,String name,String birthDate)throws SQLException {
     	  Connection conn = null;
     	  conn = DBManager.getConnection();
 
+    	  try {
+              String sql = "INSERT INTO user (login_id, password, name, birth_date, create_date, update_date) VALUES (?, ?, ?, ?, now(), now())";
 
+              PreparedStatement pStmt = conn.prepareStatement(sql);
+              pStmt.setString(1, loginId);
+              pStmt.setString(2, password);
+              pStmt.setString(3, name);
+              pStmt.setString(4, birthDate);
+
+              pStmt.executeUpdate();
+
+
+
+          } catch (SQLException e) {
+              e.printStackTrace();
+              throw e;
+          } finally {
+        	  if (conn != null) {
+                  try {
+                      conn.close();
+                  } catch (SQLException e) {
+                      e.printStackTrace();
+                  }
+        	  }
+
+          }
+     }
+    	  public void update( String password)throws SQLException {
+        	  Connection conn = null;
+        	  conn = DBManager.getConnection();
+
+        	  try {
+                  String sql = "SELECT loginId, name, birth_date FROM user";
+
+                  Statement stmt = conn.createStatement();
+                  stmt.executeQuery(sql);
+
+
+
+
+              } catch (SQLException e) {
+                  e.printStackTrace();
+                  throw e;
+              } finally {
+            	  if (conn != null) {
+                      try {
+                          conn.close();
+                      } catch (SQLException e) {
+                          e.printStackTrace();
+                      }
+            	  }
+
+              }
     }
 }

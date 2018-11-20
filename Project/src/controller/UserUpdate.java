@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDao;
+import model.User;
 
 /**
  * Servlet implementation class UserUpdate
@@ -29,6 +30,14 @@ public class UserUpdate extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String id = request.getParameter("id");
+
+		UserDao userDao = new UserDao();
+		User user = userDao.Leference(id);
+
+		request.setAttribute("user", user);
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -44,11 +53,11 @@ public class UserUpdate extends HttpServlet {
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
         String birthDate = request.getParameter("birth_date");
-		
+
         try{
          	UserDao userDao = new UserDao();
-         	userDao.update(name);
-         	userDao.update(birthDate);
+         	userDao.update(password,name,birthDate);
+         	userDao.update(name,birthDate);
 
 
         }catch(SQLException e) {

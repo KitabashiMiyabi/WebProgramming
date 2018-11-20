@@ -9,33 +9,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.UserDao;
-import model.User;
-
 /**
- * Servlet implementation class UserLeference
+ * Servlet implementation class Userclear
  */
-@WebServlet("/UserLeference")
-public class UserLeference extends HttpServlet {
+@WebServlet("/Userclear")
+public class Userclear extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
-    public UserLeference() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Userclear() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
-
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-
-		UserDao userDao = new UserDao();
-		User user = userDao.Leference(id);
-
-		request.setAttribute("user", user);
-
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userregistration2.jsp");
+		// TODO Auto-generated method stub
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userclear.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
 	/**

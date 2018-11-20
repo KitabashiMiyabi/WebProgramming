@@ -18,11 +18,16 @@
 		</div>
 		<br>
 		<DIV align="center"><h1>ユーザ情報更新</h1><br></DIV>
+		<c:if test="${errMsg != null}" >
+			    <div class="alert alert-danger" role="alert">
+				  ${errMsg}
+				</div>
+		</c:if>
 		<br>
 		<div class="container">
 			<form class="form-signin" action="UserList" method="post">
 				ログインID　　　　　　　　　　
-				${userInfo.id}<br>
+				${user.id}<br>
 				<br>
 				パスワード　　　　　　　　　　
 				<input type="text" name="password"><br>
@@ -31,10 +36,10 @@
 				<input type="text" name="password2"><br>
 				<br>
 				ユーザ名　　　　　　　　　　　
-				<input type="text" name="${userInfo.name}" ><br>
+				<input type="text" name="name" ><br>
 				<br>
 				生年月日　　　　　　　　　　　
-				<input type="text" name="${userInfo.birthDate}" ><br>
+				<input type="date" name="birthDate" ><br>
 				<br>
 				<br>
 				<DIV align="center">

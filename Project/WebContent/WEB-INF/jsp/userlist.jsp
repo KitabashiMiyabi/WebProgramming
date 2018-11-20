@@ -24,7 +24,7 @@
 	</p>
 	<br>
 	<DIV align="center">
-		<h1>ユーザー一覧</h1>
+		<h1>ユーザ一覧</h1>
 		<br>
 	</DIV>
 
@@ -51,12 +51,8 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="row">
-					<label class="control-label col-sm-2">生年月日</label>
-					<span class="control-label col-sm-5">
-						<input type="date" name="date-start"> ～ <input type="date" name="date-start">
-					</span>
-				</div>
+				<label class="control-label col-sm-2">生年月日</label>
+				<input type="date" name="date-start"> ～ <input type="date" name="date-start">
 			</div>
 
 			<div class="text-right">
@@ -81,9 +77,9 @@
                      <td>${user.birthDate}</td>
                      <!-- TODO 未実装；ログインボタンの表示制御を行う -->
                      <td>
-                       <a class="btn btn-primary" href="UserDetailServlet?id=${user.id}">詳細</a>
-                       <a class="btn btn-success" href="UserUpdateServlet?id=${user.id}">更新</a>
-                       <a class="btn btn-danger" href ="UserDeleteServlet?id=${user.id}">削除</a>
+                       <a class="btn btn-primary" href="UserLeference?id=${user.id}">詳細</a>
+                       <a class="btn btn-success" href="UserUpdate?id=${user.id}">更新</a>
+                       <a class="btn btn-danger" href ="Userclear?id=${user.id}">削除</a>
                      </td>
                    </tr>
                  </c:forEach>

@@ -6,14 +6,14 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>ユーザ情報詳細参照</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
 	<body>
 		<p style="background-color:#ffcc99;">
 		<div align=right>
-			${userInfo.name}
+			${user.name}
 			<a href="a.shtml">ログアウト</a>
 		</div>
 		<br>
@@ -22,15 +22,15 @@
 		<br>
 		<br>
 		<div class="container">
-			ログインID　　　　　${userInfo.loginId}<br>
+			ログインID　　　　　${user.loginId}<br>
 			<br>
-			ユーザ名　　　　　　${userInfo.name}<br>
+			ユーザ名　　　　　　${user.name}<br>
 			<br>
-			生年月日　　　　　　${userInfo.birthDate}<br>
+			生年月日　　　　　　${user.birthDate}<br>
 			<br>
-			登録日時　　　　　　${userInfo.now}<br>
+			登録日時　　　　　　${user.createDate}<br>
 			<br>
-			更新日時　　　　　　${userInfo.now}<br>
+			更新日時　　　　　　${user.updateDate}<br>
 			<br>
 			<a href="UserList">戻る</a>
 	    </div>

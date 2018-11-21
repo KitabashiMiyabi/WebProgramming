@@ -12,8 +12,8 @@
 	<body>
 		<div class="container">
 			<div align=right>
-				${user.name}
-		 		<a href="a.shtml">ログアウト</a>
+				${userInfo.name}
+		 		<a href="Logout" class="navbar-link logout-link">ログアウト</a>
 			</div>
 			<br>
 			<DIV align="center"><h1>ユーザ削除確認</h1><br></DIV>
@@ -22,11 +22,13 @@
 			を本当に削除してよろしいでしょうか。<br>
 			<br>
 
-			<form class="form-signin" action="UserList" method="get">
-				<input type="submit" value="　キャンセル　">
-			</form>
-			<form class="form-signin" action="Userclear" method="post">
-				<input type="submit" value="　　OK　　">
+
+			<form style="display:inline" action="UserList" method="get">
+			  <input type="submit" value="キャンセル" />
+			</form>　　　
+			<form style="display:inline" name=id action="Userclear" method="post">
+			<input type="hidden" name="id" value="${user.id}">
+			  <input type="submit" value="　　OK　　" />
 			</form>
 		</DIV>
 	</body>

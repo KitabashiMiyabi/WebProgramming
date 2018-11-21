@@ -14,7 +14,7 @@
 		<p style="background-color:#ffcc99;">
 		<div align=right>
 			${userInfo.name}
-			<a href="a.shtml">ログアウト</a>
+			<a href="Logout" class="navbar-link logout-link">ログアウト</a>
 		</div>
 		<br>
 		<DIV align="center"><h1>ユーザ情報更新</h1><br></DIV>
@@ -25,9 +25,11 @@
 		</c:if>
 		<br>
 		<div class="container">
-			<form class="form-signin" action="UserList" method="post">
+			<form class="form-signin" action="UserUpdate" method="post">
+				<input type="hidden" name="id" value="${user.id}">
+				<input type="hidden" name="loginId" value="${user.loginId}">
 				ログインID　　　　　　　　　　
-				${user.id}<br>
+				${user.loginId}<br>
 				<br>
 				パスワード　　　　　　　　　　
 				<input type="text" name="password"><br>
@@ -36,10 +38,10 @@
 				<input type="text" name="password2"><br>
 				<br>
 				ユーザ名　　　　　　　　　　　
-				<input type="text" name="name" ><br>
+				<input type="text" name="name" value="${user.name}"><br>
 				<br>
 				生年月日　　　　　　　　　　　
-				<input type="date" name="birthDate" ><br>
+				<input type="date" name="birthDate" value="${user.birthDateStr}" ><br>
 				<br>
 				<br>
 				<DIV align="center">

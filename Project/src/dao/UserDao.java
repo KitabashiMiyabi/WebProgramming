@@ -175,19 +175,20 @@ public class UserDao {
 		return null;
 	}
 
-	
 
-	public void update(String password, String name, String birthDate) throws SQLException {
+
+	public void update(String id,String password, String name, String birthDate) throws SQLException {
 		Connection conn = null;
 		conn = DBManager.getConnection();
 
 		try {
-			String sql ="UPDATE user SET password name birthDate = password=? name=? birthDate=?";
+			String sql ="UPDATE user SET password=?, name=?, birth_date =? ,update_date=now() where id=?";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, password);
 			pStmt.setString(2, name);
 			pStmt.setString(3, birthDate);
+			pStmt.setString(4, id);
 
 			pStmt.executeUpdate();
 
@@ -205,17 +206,18 @@ public class UserDao {
 
 		}
 	}
-	
-	public void update( String name, String birthDate) throws SQLException {
+
+	public void update(String id, String name, String birthDate) throws SQLException {
 		Connection conn = null;
 		conn = DBManager.getConnection();
 
 		try {
-			String sql ="UPDATE user SET  name birthDate = name=? birthDate=?";
+			String sql ="UPDATE user SET name=?, birth_date =? ,update_date=now() where id=?";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, name);
 			pStmt.setString(2, birthDate);
+			pStmt.setString(3, id);
 
 			pStmt.executeUpdate();
 
@@ -232,5 +234,28 @@ public class UserDao {
 			}
 
 		}
+	}
+	public void Clear(String id) {
+		Connection conn = null;
+		conn = DBManager.getConnection();
+		try {
+			String sql ="DELETE FROM user WHERE id = ?";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1,id);
+			pStmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
 	}
 }

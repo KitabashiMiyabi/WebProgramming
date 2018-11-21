@@ -49,16 +49,35 @@ public class UserUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 request.setCharacterEncoding("UTF-8");//おまじない
 
-
+		String id = request.getParameter("id");
+		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
+		String password2 = request.getParameter("password2");
+
 		String name = request.getParameter("name");
-        String birthDate = request.getParameter("birth_date");
+        String birthDate = request.getParameter("birthDate");
 
         try{
-         	UserDao userDao = new UserDao();
-         	userDao.update(password,name,birthDate);
-         	userDao.update(name,birthDate);
+         	UserDao userDao = new UserDao();  //isEmpty
+         	if(password.equals(password2) && !name.equals("")&& !birthDate.equals("") ) {
+         		if(password.equals("") ) {
+         			userDao.update(id,name,birthDate);
+         		}else {
+         			userDao.update(id,password,name,birthDate);
+         		}
+         	}else {
 
+
+         		User user = new User(Integer.parseInt(id), loginId, name, Utill.convertDate(birthDate) , null, null, null);
+
+         		request.setAttribute("user", user);
+         		request.setAttribute("errMsg", "入力された内容は正しくありません");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
+				dispatcher.forward(request, response);
+				return;
+         	}
+
+         	response.sendRedirect("UserList" );
 
         }catch(SQLException e) {
 				// リクエストスコープにエラーメッセージをセット

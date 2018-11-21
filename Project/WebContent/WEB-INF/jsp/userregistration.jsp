@@ -14,7 +14,7 @@
 		<p style="background-color:#ffcc99;">
 			<div align=right>
 				${userInfo.name}
-				<a href="a.shtml">ログアウト</a>
+				<a href="Logout" class="navbar-link logout-link">ログアウト</a>
 			</div>
 		<br>
 		<DIV align="center"><h1>ユーザ新規登録</h1><br></DIV>
@@ -39,7 +39,7 @@
 				<input type="text" name="name"><br>
 				<br>
 				生年月日　　　
-				<input type="date" name="birthDay"><br>
+				<input type="date" name="birthDate"><br>
 				<br>
 				<br>
 				<DIV align="center">

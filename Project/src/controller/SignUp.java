@@ -43,14 +43,16 @@ public class SignUp extends HttpServlet {
 		 request.setCharacterEncoding("UTF-8");//おまじない
 
 
-			String loginId = request.getParameter("loginid");
+			String loginId = request.getParameter("loginId");
 			String password = request.getParameter("password");
 			String name = request.getParameter("name");
-            String birthDate = request.getParameter("birth_date");
+            String birthDate = request.getParameter("birthDate");
 
             try{
             	UserDao userDao = new UserDao();
             	userDao.signup(loginId, password,name,birthDate);
+
+            	response.sendRedirect("UserList" );
 
             }catch(SQLException e) {
 				// リクエストスコープにエラーメッセージをセット

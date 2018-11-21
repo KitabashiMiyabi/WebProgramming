@@ -14,7 +14,7 @@
 		<p style="background-color:#ffcc99;">
 		<div align=right>
 			${user.name}
-			<a href="a.shtml">ログアウト</a>
+			<a href="Logout" class="navbar-link logout-link">ログアウト</a>
 		</div>
 		<br>
 		<DIV align="center"><h1>ユーザ情報詳細参照</h1><br></DIV>

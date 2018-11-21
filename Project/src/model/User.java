@@ -2,6 +2,8 @@ package model;
 
 import java.util.Date;
 
+import controller.Utill;
+
 /**
  * Userテーブルのデータを格納するためのBeans
  * @author takano
@@ -34,7 +36,7 @@ public class User {
 		this.updateDate = updateDate;
 	}
 
-	
+
 
 
 	public int getId() {
@@ -57,6 +59,9 @@ public class User {
 	}
 	public Date getBirthDate() {
 		return birthDate;
+	}
+	public String getBirthDateStr() {
+		return Utill.convertStr(birthDate);
 	}
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;

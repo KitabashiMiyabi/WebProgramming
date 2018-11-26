@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.User;
@@ -33,6 +34,12 @@ public class UserList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		if(session.getAttribute("userInfo") == null ){
+			response.sendRedirect("Login");
+			return;
+		}
+
 		UserDao userDao = new UserDao();
 		List<User> userList = userDao.findAll();
 
@@ -41,18 +48,33 @@ public class UserList extends HttpServlet {
 
 
 
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userlist.jsp");
 		dispatcher.forward(request, response);
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");//おまじない
+		request.setCharacterEncoding("UTF-8");
 
+		String id = request.getParameter("loginid");
+		String name = request.getParameter("name");
+		String dateStart = request.getParameter("date-start");
+		String dateEnd = request.getParameter("date-end");
+
+
+
+
+		UserDao userDao = new UserDao();
+		List<User> findsearch = userDao.findSearch(id,name, dateStart,dateEnd);
+		request.setAttribute("userList", findsearch);
+
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userlist.jsp");
+		dispatcher.forward(request, response);
 
 	}
 

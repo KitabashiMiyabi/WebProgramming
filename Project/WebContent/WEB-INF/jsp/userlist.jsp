@@ -51,7 +51,7 @@
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2">生年月日</label>
-				<input type="date" name="date-start"> ～ <input type="date" name="date-start">
+				<input type="date" name="date-start"> ～ <input type="date" name="date-end">
 			</div>
 
 			<div class="text-right">

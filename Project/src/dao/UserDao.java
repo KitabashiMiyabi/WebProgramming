@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.Utill;
 import model.User;
 
 public class UserDao {
@@ -69,7 +70,9 @@ public class UserDao {
 
 			// SELECT文を準備
 			// TODO: 未実装：管理者以外を取得するようSQLを変更する
-			String sql = "SELECT * FROM user";
+			String sql = "SELECT * FROM user WHERE id not in ('1')";
+
+
 
 			// SELECTを実行し、結果表を取得
 			Statement stmt = conn.createStatement();
@@ -185,7 +188,7 @@ public class UserDao {
 			String sql ="UPDATE user SET password=?, name=?, birth_date =? ,update_date=now() where id=?";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, password);
+			pStmt.setString(1,Utill.password(password) );
 			pStmt.setString(2, name);
 			pStmt.setString(3, birthDate);
 			pStmt.setString(4, id);
@@ -256,6 +259,99 @@ public class UserDao {
 				}
 			}
 		}
+	}
+	public List<User> findSearch(String loginIdP, String nameP, String birthDateP, String birthDateE) {
+		Connection conn = null;
+		List<User> userList = new ArrayList<User>();
+
+		try {
+			// データベースへ接続
+			conn = DBManager.getConnection();
+
+			// SELECT文を準備
+			// 管理者以外を取得するようSQLを変更する
+			String sql = "SELECT * FROM user WHERE id not in ('1')";
+
+			if(!loginIdP.equals("")) {
+				sql += " AND login_id ='" + loginIdP + "'";
+			}
+
+			if(!nameP.equals("")) {
+				sql += " AND name LIKE '%' " + nameP+"'";
+			}
+
+			if(!birthDateP.equals("")) {
+				sql += " AND birthDate >= '" + birthDateP + "'";
+			}
+
+			if(!birthDateE.equals("")) {
+				sql += " AND login_id <= '" + birthDateE + "'";
+			}
+
+			System.out.println(sql);
+
+
+			// SELECTを実行し、結果表を取得
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			// 結果表に格納されたレコードの内容を
+			// Userインスタンスに設定し、ArrayListインスタンスに追加
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String loginId = rs.getString("login_id");
+				String name = rs.getString("name");
+				Date birthDate = rs.getDate("birth_date");
+				String password = rs.getString("password");
+				String createDate = rs.getString("create_date");
+				String updateDate = rs.getString("update_date");
+				User user = new User(id, loginId, name, birthDate, password, createDate, updateDate);
+
+				userList.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+		return userList;
 
 	}
+
+//	public User Retrieval(String id) {
+//		Connection conn = null;
+//		conn = DBManager.getConnection();
+//
+//		try {
+//			String sql = "SELECT * FROM user WHERE id=? ";
+//
+//				PreparedStatement pStmt = conn.prepareStatement(sql);
+//				pStmt.setString(1, id);
+//
+//				ResultSet rs = pStmt.executeQuery();
+//
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} finally {
+//				if (conn != null) {
+//					try {
+//						conn.close();
+//					} catch (SQLException e) {
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+
+
+
+//	}
 }
